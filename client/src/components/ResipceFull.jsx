@@ -9,7 +9,7 @@ export default function ResipceFull(props) {
 
   const getData = async () => {
     const { data } = await axios.get(props.api);
-    setResipes(data.hits);
+    setResipes(data);
   };
 
   useEffect(() => {
@@ -24,8 +24,8 @@ export default function ResipceFull(props) {
 
           {resipes ? (
             resipes[
-              resipes.findIndex((res) => res.recipe.label === props.name)
-            ]?.recipe.ingredientLines.map((ing, i) => <li key={i}>{ing}</li>)
+              resipes.findIndex((res) => res.recipe.name === props.name)
+            ]?.recipe.ingredients.map((ing, i) => <li key={i}>{ing}</li>)
           ) : (
             <div>
               <Backdrop
@@ -57,8 +57,8 @@ export default function ResipceFull(props) {
           src={
             resipes ? (
               resipes[
-                resipes.findIndex((res) => res.recipe.label === props.name)
-              ]?.recipe.image
+                resipes.findIndex((res) => res.recipe.name === props.name)
+              ]?.recipe.img
             ) : (
               <div>
                 <Backdrop
@@ -77,8 +77,8 @@ export default function ResipceFull(props) {
         />
         <h1 className="h-14 flex flex-col justify-center m-2 font-bold ">
           {resipes ? (
-            resipes[resipes.findIndex((res) => res.recipe.label === props.name)]
-              ?.recipe.label
+            resipes[resipes.findIndex((res) => res.recipe.name === props.name)]
+              ?.recipe.name
           ) : (
             <div>
               <Backdrop

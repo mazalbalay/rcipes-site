@@ -10,9 +10,10 @@ export default function RespiceHome(props) {
 
   const getData = async () => {
     const { data } = await axios.get(props.api);
+    console.log(data[0]);
     setResipes(data);
   };
-  console.log(resipes);
+
   useEffect(() => {
     getData();
   }, []);

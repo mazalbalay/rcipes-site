@@ -16,7 +16,7 @@ function App() {
           element={
             <ResipcesFullPage
               name="italian"
-              api="https://api.edamam.com/api/recipes/v2?type=public&q=Italian&app_id=c200b080&app_key=d4e33ef484921f29fcc246e7fa60e28f"
+              api="http://localhost:7000/italian"
             />
           }
         />
@@ -25,7 +25,7 @@ function App() {
           element={
             <ResipcesFullPage
               name="mexican"
-              api="https://api.edamam.com/api/recipes/v2?type=public&q=Mexican&app_id=c200b080&app_key=d4e33ef484921f29fcc246e7fa60e28f"
+              api="http://localhost:7000/mexican"
             />
           }
         />
@@ -34,7 +34,7 @@ function App() {
           element={
             <ResipcesFullPage
               name="pastries"
-              api="https://api.edamam.com/api/recipes/v2?type=public&q=pastries&app_id=c200b080&app_key=d4e33ef484921f29fcc246e7fa60e28f"
+              api="http://localhost:7000/pastries"
             />
           }
         />
@@ -43,7 +43,7 @@ function App() {
           element={
             <ResipcesFullPage
               name="dessert"
-              api="https://api.edamam.com/api/recipes/v2?type=public&q=dessert&app_id=c200b080&app_key=d4e33ef484921f29fcc246e7fa60e28f"
+              api="http://localhost:7000/dessert"
             />
           }
         />

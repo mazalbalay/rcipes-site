@@ -22,7 +22,7 @@ export default function ResipcesFullPage(props) {
 
   const getData = async () => {
     const { data } = await axios.get(props.api);
-    setResipes(data.hits);
+    setResipes(data);
   };
 
   useEffect(() => {
@@ -58,7 +58,7 @@ export default function ResipcesFullPage(props) {
           <AiOutlineCaretDown className="text-4xl text-orange-900 " />
         </div>
         <Link to="input" activeClass="active" spy={true} smooth={true}>
-          <div className="fixed  justify-center flex-col items-center text-orange-900 flex md:text-2xl font-bold bottom-52 md:right-10 right-1 hover:scale-125 duration-500">
+          <div className="fixed justify-center flex-col items-center text-orange-900 flex md:text-2xl font-bold bottom-52 md:right-10 right-1 hover:scale-125 duration-500">
             <BiUpArrow />
             <p>Top</p>
           </div>
@@ -70,7 +70,7 @@ export default function ResipcesFullPage(props) {
                 if (input === "") {
                   return val;
                 } else if (
-                  val.recipe.label.toLowerCase().includes(input.toLowerCase())
+                  val.recipe.name.toLowerCase().includes(input.toLowerCase())
                 ) {
                   return val;
                 }
@@ -84,9 +84,9 @@ export default function ResipcesFullPage(props) {
                     key={i}
                   >
                     <div className="w-full h-3/4 flex flex-col justify-evenly items-center">
-                      <img src={res.recipe.image} className="" alt="" />
+                      <img src={res.recipe.img} className="" alt="" />
                       <h1 className="h-14 flex flex-col justify-center m-2 font-bold ">
-                        {res.recipe.label}
+                        {res.recipe.name}
                       </h1>
                       <h2 className="font-bold capitalize">
                         calories: ${res.recipe.calories}
@@ -96,7 +96,7 @@ export default function ResipcesFullPage(props) {
                       </h2>
                       <h2
                         className="cursor-pointer font-bold border-2 rounded-md w-1/2 p-1 md:mb-3 mb-0  hover:text-white hover:bg-orange-900 text-orange-900 border-orange-900 hover:duration-1000"
-                        onClick={() => handleClick(res.recipe.label)}
+                        onClick={() => handleClick(res.recipe.name)}
                       >
                         click to open
                       </h2>
