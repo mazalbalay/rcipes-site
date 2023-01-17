@@ -94,7 +94,7 @@ export default function ResipcesFullPage(props) {
                         meal Type: ${res.recipe.mealType}
                       </h2>
                       <h2
-                        className="cursor-pointer font-bold border-2 rounded-md w-1/2 p-1 md:mb-3 mb-0  hover:text-white hover:bg-orange-900 text-orange-900 border-orange-900 hover:duration-1000"
+                        className="cursor-pointer font-bold border-2 rounded-md w-full p-1 md:mb-3 mb-0  hover:text-white hover:bg-orange-900 text-orange-900 border-orange-900 hover:duration-1000"
                         onClick={() => handleClick(res.recipe.label)}
                       >
                         click to open
