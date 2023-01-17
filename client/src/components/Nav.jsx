@@ -2,8 +2,6 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-scroll";
 import { FaBars, FaTimes } from "react-icons/fa";
-// import { AiTwotoneSetting } from "react-icons/ai";
-//אם יהיה לי זמן לעשות הגדרות לאתר
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
@@ -98,12 +96,6 @@ export default function Nav() {
             </Transition>
           </Menu>
         </ul>
-
-        {/* <div>
-          <AiTwotoneSetting className="text-2xl hover:scale-110 duration-100 text-white hidden md:flex cursor-pointer" />
-        </div> */}
-
-        {/* mobile */}
 
         <div
           onClick={() => setNav(!nav)}

@@ -21,9 +21,6 @@ export default function Nav() {
             <LinkRoute to={"/"} >home</LinkRoute>
           </li>
         </ul>
-
-        {/* mobile */}
-
         <div
           onClick={() => setNav(!nav)}
           className="md:hidden z-10 cursor-pointer text-white text-2xl"
