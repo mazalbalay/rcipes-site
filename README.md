@@ -1,5 +1,5 @@
 # rcipes-site
-התרגום ארוך מדי לשמירה
+
 A recipe project that combines the use of an external API.
 My goal was to use one template and change information as needed.
 In addition, take care of a convenient user interface, for example a button to return to the beginning of the page or to load the page before the information appears.
