@@ -1,4 +1,3 @@
-//במידה ולא נימצא כפתור בחיפוש לתת אינדיקציה שאין מתכון כזה
 import React, { useEffect, useState } from "react";
 import { AiOutlineCaretDown } from "react-icons/ai";
 import axios from "axios";
