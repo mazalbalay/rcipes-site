@@ -20,20 +20,20 @@ export default function Home() {
         ></video>
       </div>
       <RespiceHome
-        api="http://localhost:7000/italian"
+        option="italian"
         id="italian"
       />
       <RespiceHome
-        api="http://localhost:7000/dessert"
+        option="dessert"
         id="dessert"
       />
       <About />
       <RespiceHome
-        api="http://localhost:7000/pastries"
+        option="pastries"
         id="pastries"
       />
       <RespiceHome
-        api="http://localhost:7000/mexican"
+        option="mexican"
         id="mexican"
       />
       <Contact />

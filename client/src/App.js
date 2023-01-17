@@ -16,7 +16,7 @@ function App() {
           element={
             <ResipcesFullPage
               name="italian"
-              api="http://localhost:7000/italian"
+              option="italian"
             />
           }
         />
@@ -25,7 +25,7 @@ function App() {
           element={
             <ResipcesFullPage
               name="mexican"
-              api="http://localhost:7000/mexican"
+              option="mexican"
             />
           }
         />
@@ -34,7 +34,7 @@ function App() {
           element={
             <ResipcesFullPage
               name="pastries"
-              api="http://localhost:7000/pastries"
+              option="pastries"
             />
           }
         />
@@ -43,7 +43,7 @@ function App() {
           element={
             <ResipcesFullPage
               name="dessert"
-              api="http://localhost:7000/dessert"
+              option="dessert"
             />
           }
         />

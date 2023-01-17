@@ -13,16 +13,16 @@ export default function ResipcesFullPage(props) {
   const [resipes, setResipes] = useState(null);
   const [input, setInput] = useState("");
   const [click, setClick] = useState(false);
-  const [name, setName] = useState("0");
+  const [name, setName] = useState("");
 
-  function handleClick(i) {
+  function handleClick(name) {
     setClick((click) => !click);
-    setName(i);
+    setName(name);
   }
 
   const getData = async () => {
-    const { data } = await axios.get(props.api);
-    setResipes(data);
+    const { data } = await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=${props.option}&app_id=c200b080&app_key=d4e33ef484921f29fcc246e7fa60e28f`);
+    setResipes(data.hits);
   };
 
   useEffect(() => {
@@ -36,8 +36,8 @@ export default function ResipcesFullPage(props) {
       {click ? (
         <ResipceFull
           callback={(some) => setClick(some)}
-          api={props.api}
           name={name}
+          option={props.option}
           click={click}
         />
       ) : null}
@@ -49,7 +49,7 @@ export default function ResipcesFullPage(props) {
           onChange={(e) => setInput(e.target.value)}
           type="text"
           placeholder="search resipce"
-          className="w-4/5 md:w-1/2 p-4 rounded-lg placeholder:text-center border placeholder:text-orange-900 placeholder:font-bold border-orange-900 my-4"
+          className="w-4/5 md:w-1/3 p-4 rounded-lg placeholder:text-center border placeholder:text-orange-900 placeholder:font-bold border-orange-900 my-4"
         />
         <div className="flex justify-center items-center cursor-default ">
           <h1 className="font-siganatrue text-4xl font-bold text-orange-900 capitalize my-14">
@@ -70,7 +70,7 @@ export default function ResipcesFullPage(props) {
                 if (input === "") {
                   return val;
                 } else if (
-                  val.recipe.name.toLowerCase().includes(input.toLowerCase())
+                  val.recipe.label.toLowerCase().includes(input.toLowerCase())
                 ) {
                   return val;
                 }
@@ -84,9 +84,9 @@ export default function ResipcesFullPage(props) {
                     key={i}
                   >
                     <div className="w-full h-3/4 flex flex-col justify-evenly items-center">
-                      <img src={res.recipe.img} className="" alt="" />
+                      <img src={res.recipe.image} className="" alt="" />
                       <h1 className="h-14 flex flex-col justify-center m-2 font-bold ">
-                        {res.recipe.name}
+                        {res.recipe.label}
                       </h1>
                       <h2 className="font-bold capitalize">
                         calories: ${res.recipe.calories}
@@ -96,7 +96,7 @@ export default function ResipcesFullPage(props) {
                       </h2>
                       <h2
                         className="cursor-pointer font-bold border-2 rounded-md w-1/2 p-1 md:mb-3 mb-0  hover:text-white hover:bg-orange-900 text-orange-900 border-orange-900 hover:duration-1000"
-                        onClick={() => handleClick(res.recipe.name)}
+                        onClick={() => handleClick(res.recipe.label)}
                       >
                         click to open
                       </h2>

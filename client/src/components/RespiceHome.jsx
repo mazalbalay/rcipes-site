@@ -9,9 +9,8 @@ export default function RespiceHome(props) {
   const [resipes, setResipes] = useState(null);
 
   const getData = async () => {
-    const { data } = await axios.get(props.api);
-    console.log(data[0]);
-    setResipes(data);
+    const { data } = await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=${props.option}&app_id=c200b080&app_key=d4e33ef484921f29fcc246e7fa60e28f`);
+    setResipes(data.hits);
   };
 
   useEffect(() => {
@@ -38,12 +37,12 @@ export default function RespiceHome(props) {
                 key={i}
                 className="shadow-lg w-full md:w-1/6 bg-white p-1 rounded-lg  m-10 hover:scale-105 hover:duration-1000"
               >
-                <img src={res.recipe.img} className="m-auto" alt="" />
+                <img src={res.recipe.image} className="m-auto" alt="" />
                 <h1 className="h-28 text-2xl flex flex-col justify-center m-2 ">
-                  {res.recipe.name}
+                  {res.recipe.label}
                 </h1>
                 <h2 className="font-bold capitalize">
-                  calories: ${res.recipe.calories.substring(0, 6)}
+                  calories: ${res.recipe.calories}
                 </h2>
                 <h2 className="font-bold capitalize">
                   meal Type: ${res.recipe.mealType}

@@ -8,8 +8,10 @@ export default function ResipceFull(props) {
   const click = false;
 
   const getData = async () => {
-    const { data } = await axios.get(props.api);
-    setResipes(data);
+    const { data } = await axios.get(
+      `https://api.edamam.com/api/recipes/v2?type=public&q=${props.option}&app_id=c200b080&app_key=d4e33ef484921f29fcc246e7fa60e28f`,
+    );
+    setResipes(data.hits);
   };
 
   useEffect(() => {
@@ -17,15 +19,14 @@ export default function ResipceFull(props) {
   }, []);
 
   return (
-    <div className="bg-orange-900 text-white w-full md:w-5/6 fixed md:top-24  md:h-5/6 h-screen flex flex-col md:flex-row border border-white rounded-md items-center overflow-scroll md:overflow-auto md:left-32 py-12">
+    <div className="bg-stone-100  w-full md:w-5/6 fixed md:top-24  md:h-5/6 h-screen flex flex-col md:flex-row border shadow-lg shadow-orange-900 rounded-md items-center overflow-scroll md:overflow-auto md:left-32 py-12 text-orange-900">
       <div className="w-full  flex flex-col justify-evenly p-6 ">
-        <ul className="text-left my-6">
+        <ul className="text-left my-6 pl-8">
           <h2 className="font-bold capitalize text-2xl">Ingredient:</h2>
-
           {resipes ? (
             resipes[
-              resipes.findIndex((res) => res.recipe.name === props.name)
-            ]?.recipe.ingredients.map((ing, i) => <li key={i}>{ing}</li>)
+              resipes.findIndex((res) => res.recipe.label === props.name)
+            ]?.recipe.ingredientLines.map((ing, i) => <li key={i}>{ing}</li>)
           ) : (
             <div>
               <Backdrop
@@ -41,7 +42,7 @@ export default function ResipceFull(props) {
           )}
         </ul>
 
-        <div className="text-left ">
+        <div className="text-left pl-8">
           <h2 className="font-bold mt-6 capitalize text-2xl">Instructions:</h2>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia
           placeat sunt eaque vero tempore a, at perferendis. Accusantium cumque
@@ -57,8 +58,8 @@ export default function ResipceFull(props) {
           src={
             resipes ? (
               resipes[
-                resipes.findIndex((res) => res.recipe.name === props.name)
-              ]?.recipe.img
+                resipes.findIndex((res) => res.recipe.label === props.name)
+              ]?.recipe.image
             ) : (
               <div>
                 <Backdrop
@@ -77,8 +78,8 @@ export default function ResipceFull(props) {
         />
         <h1 className="h-14 flex flex-col justify-center m-2 font-bold ">
           {resipes ? (
-            resipes[resipes.findIndex((res) => res.recipe.name === props.name)]
-              ?.recipe.name
+            resipes[resipes.findIndex((res) => res.recipe.label === props.name)]
+              ?.recipe.label
           ) : (
             <div>
               <Backdrop
@@ -95,7 +96,7 @@ export default function ResipceFull(props) {
         </h1>
 
         <h2
-          className="cursor-pointer font-bold border border-b-2 w-1/2 p-2 md:mb-3 mb-0 hover:text-orange-900 hover:bg-white hover:duration-500 rounded-sm"
+          className="cursor-pointer font-bold border bg-orange-900 text-white py-4 border-orange-900 w-1/2 p-2 md:mb-3 mb-0 hover:text-orange-900 hover:bg-white hover:duration-500 rounded-xl"
           onClick={() => props.callback(click)}
         >
           click to back

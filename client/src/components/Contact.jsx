@@ -8,7 +8,7 @@ export default function Contact() {
       You can leave a message and we will get back to you as soon as possible
     </div>
 
-    <form action="" method="POST" className="h-2/3 flex flex-col w-4/5 md:w-1/3 justify-evenly m-auto">
+    <form action="https://getform.io/f/67597346-bb7a-4f2a-9a8d-bc36586010e1" method="POST" className="h-2/3 flex flex-col w-4/5 md:w-1/3 justify-evenly m-auto">
       <input
         type="text"
         placeholder="enter your name"
