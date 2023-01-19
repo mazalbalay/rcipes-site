@@ -1,9 +1,9 @@
 # rcipes-site
+פקוייקט צד לקוח בלבד המשלב react, api ו-tailwind.
+מטרתי בפקוייקט היתה ליצור תבנית אחת ,ולהשתמש בה מס פעמים ולשנות מקור מידע בלבד.
+בנוסף היה חשוב לי לדאוג לחווית משתמש נוחה.
+למשל כפתור חזרה לתחילת הדף,ניווט לכל חלק בדף וטעינת הדף עד שהמידע יגיע.
+הטופס ליצרת קשר שולח לי את כל הפרטים, כך שיהיה אפשר להשאיר לי הודעות.
+האתר מותאם גם לנייד.
 
-A recipe project that combines the use of an external API.
-My goal was to use one template and change information as needed.
-In addition, take care of a convenient user interface, for example a button to return to the beginning of the page or to load the page before the information appears.
-A note about the API:
-This is a heavy and massive API, so it may sometimes be necessary to refresh if the information does not appear.
-When filling out the contact form, the details are sent to me directly,
-So that you can leave me messages..
+*api- כבד עם המון מידע יש סיכוי שהמידע לא יעלה ויהיה צורך בריענון הדף בשנית כדאי לקבל את המידע 
