@@ -15,5 +15,5 @@ My goal in the project was to create one template, and use it several times and 
 In addition, it was important to me to ensure a comfortable user experience.
 For example, a button back to the beginning of the page, navigation to any part of the page and loading the page until the information is uploaded.
 The contact form sends all the details to me, so that you can leave me messages.
-The site is also optimized for mobile.
+The site is also responsive for mobile.
 * api - heavy with a lot of information, there is a chance that the information will not upload and it will be necessary to refresh the page again to receive the information
